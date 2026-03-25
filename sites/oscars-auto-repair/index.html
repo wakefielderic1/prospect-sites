@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oscar's Auto Repair | Arlington, TX</title>
+    <title>Oscar's Auto Repair | Arlington, TX | Expert Auto Service</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,19 +15,11 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #1a3a5c;
-            --secondary: #e63946;
-            --accent: #f4a261;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
             line-height: 1.6;
-            color: var(--dark);
         }
 
         a {
@@ -32,84 +27,81 @@
             color: inherit;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #c1121f;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
-        }
-
-        .btn i {
-            margin-right: 10px;
-        }
-
-        /* Header */
-        header {
-            background: var(--primary);
-            padding: 15px 0;
+        /* Navigation */
+        .nav {
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        header .container {
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo {
+        .nav-logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
+            font-weight: 800;
+            color: #ff3b30;
         }
 
-        .logo i {
-            color: var(--accent);
-            margin-right: 10px;
+        .nav-logo span {
+            color: #ffffff;
         }
 
-        .header-phone {
-            color: white;
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff3b30;
+        }
+
+        .nav-cta {
+            background: #ff3b30;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
             font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .header-phone i {
-            color: var(--accent);
-            margin-right: 8px;
+        .nav-cta:hover {
+            background: #e6352b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 59, 48, 0.3);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #0d2137 100%);
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 120px 20px 80px;
-            position: relative;
-            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1632823471565-1ecdf5c6da3e?w=1400&q=80') center/cover no-repeat;
+            padding: 120px 5% 80px;
         }
 
         .hero::before {
@@ -119,430 +111,400 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23ffffff05" stroke-width="2"/></svg>') repeat;
-            background-size: 100px;
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.9) 0%, rgba(13, 13, 13, 0.7) 50%, rgba(255, 59, 48, 0.2) 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 59, 48, 0.2);
+            border: 1px solid rgba(255, 59, 48, 0.5);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero h1 i {
-            color: var(--accent);
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 20px;
+        .hero h1 span {
+            color: #ff3b30;
         }
 
-        .hero .tagline {
-            font-size: 1.4rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 15px;
-            font-weight: 300;
+        .hero-tagline {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero .location {
-            color: var(--accent);
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #ff3b30;
+            color: #ffffff;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta:hover {
+            background: #e6352b;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255, 59, 48, 0.4);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            background: rgba(255, 59, 48, 0.1);
+            border-color: rgba(255, 59, 48, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff3b30;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: linear-gradient(90deg, #ff3b30, #ff6b5b);
+            padding: 1.25rem 5%;
+            overflow: hidden;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .trust-item i {
             font-size: 1.1rem;
-            margin-bottom: 40px;
         }
 
-        .hero .location i {
-            margin-right: 8px;
+        /* Section Styles */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ff3b30;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Services Section */
         .services {
-            padding: 100px 0;
-            background: var(--light);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            font-size: 1.1rem;
+            background: #0d0d0d;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
         .service-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            background: linear-gradient(145deg, #1a1a1a, #141414);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: rgba(255, 59, 48, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
         }
 
-        .service-card i {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
+        .service-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
         }
 
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
         }
 
-        .service-card p {
-            color: var(--gray);
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #ff3b30;
+            color: #ffffff;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .service-content {
+            padding: 1.75rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-content p {
+            color: rgba(255, 255, 255, 0.65);
             font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         /* About Section */
         .about {
-            padding: 100px 0;
-            background: white;
+            background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
         }
 
-        .about-content {
+        .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 5rem;
             align-items: center;
         }
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 25px;
+        .about-image {
+            position: relative;
         }
 
-        .about-text p {
-            color: var(--gray);
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: #ff3b30;
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .about-image-badge .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .about-image-badge .text {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .about-content h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content h2 span {
+            color: #ff3b30;
+        }
+
+        .about-text {
+            color: rgba(255, 255, 255, 0.75);
             font-size: 1.1rem;
-            margin-bottom: 20px;
             line-height: 1.8;
+            margin-bottom: 2rem;
         }
 
         .about-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 1.25rem;
         }
 
         .about-feature {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .about-feature i {
-            color: var(--secondary);
-            font-size: 1.5rem;
+            color: #ff3b30;
+            font-size: 1.25rem;
+            margin-top: 0.2rem;
         }
 
         .about-feature span {
             font-weight: 600;
-            color: var(--primary);
+            font-size: 0.95rem;
         }
 
-        .about-image {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 20px;
-            padding: 60px;
-            text-align: center;
-            color: white;
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background: #0d0d0d;
         }
 
-        .about-image i {
-            font-size: 8rem;
-            opacity: 0.9;
+        .gallery-header {
+            padding: 0 5%;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 0 5%;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(255, 59, 48, 0.8) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         /* Reviews Section */
         .reviews {
-            padding: 100px 0;
-            background: var(--primary);
-            color: white;
-            text-align: center;
+            background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
         }
 
-        .reviews .section-title h2 {
-            color: white;
-        }
-
-        .reviews .section-title p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .reviews-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .stars {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .rating-number {
-            font-size: 5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .rating-text {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .google-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: white;
-            color: var(--primary);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-        }
-
-        .google-badge i {
-            color: #4285f4;
-            font-size: 1.5rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: var(--light);
-        }
-
-        .contact-grid {
+        .reviews-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
         }
 
-        .contact-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-
-        .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .contact-card p {
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        .contact-card a {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .contact-cta {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .contact-cta p {
-            margin-bottom: 25px;
-            font-size: 1.2rem;
-            color: var(--gray);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 40px 0;
+        .reviews-score {
+            background: linear-gradient(145deg, #1f1f1f, #171717);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
         }
 
-        footer p {
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        footer .powered {
-            font-size: 0.9rem;
-            opacity: 0.6;
-        }
-
-        footer .powered a {
-            color: var(--accent);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                order: -1;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-phone span {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-
-            .rating-number {
-                font-size: 3.5rem;
-            }
-
-            .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .hero {
-                padding: 100px 15px 60px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .services, .about, .reviews, .contact {
-                padding: 60px 0;
-            }
-
-            .service-card, .contact-card {
-                padding: 30px 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-car-side"></i>Oscar's Auto Repair
-            </div>
-            <a href="tel:(817) 881-9308" class="header-phone">
-                <i class="fas fa-phone"></i>
-                <span>(817) 881-9308</span>
-            </a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>
-                <i class="fas fa-tools"></i>
-                Oscar's Auto Repair
-            </h1>
-            <p class="tagline">Your Trusted Local Auto Repair Experts</p>
-            <p class="location"><i class="fas fa-map-marker-alt"></i>Arlington, TX</p>
-            <a href="tel:(817) 881-9308" class="btn">
-                <i class="fas fa-phone"></i>Call Us Now
-            </a>
-        </div>
-    </section>
-
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Quality auto repair services to keep you on the road</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-oil-can"></i>
-                    <h3>Oil Change</h3>
-                    <p>Regular oil changes to keep your engine running smoothly and extend its lifespan.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Engine Repair</h3>
-                    <p>Complete engine diagnostics and repair services for all makes and models.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-compact-disc"></i>
-                    <h3>Brake Service</h3>
-                    <p>Brake inspection, repair, and replacement to ensure your safety on the road.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-car-battery"></i>
-                    <h3>Battery Service</h3>
-                    <p>Battery testing, charging, and replacement services for reliable starts.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-snowflake"></i>
-                    <h3>A/C Repair</h3>
-                    <p>Air conditioning diagnostics and repair to keep you cool in Texas heat.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-wrench"></i>
-                    <h3>General Repair</h3>
-                    <p>Comprehensive auto repair services for all your vehicle maintenance needs.</p>
-                </div>
-            </div>
-        </div>
+        .score-number {
+            font-size: 5rem;
+            font-
