@@ -1,521 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colombia Auto Repair | Dallas, TX | Quality Auto Service</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #1a3a5c;
-            --secondary-color: #e63946;
-            --accent-color: #f4a261;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gray-color: #6c757d;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Header */
-        header {
-            background: var(--primary-color);
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .header-phone a {
-            color: white;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .header-phone a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(26, 58, 92, 0.95) 0%, rgba(26, 58, 92, 0.85) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23333" width="100" height="100"/><circle fill="%23444" cx="25" cy="25" r="20"/><circle fill="%23444" cx="75" cy="75" r="20"/></svg>');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero h1 span {
-            color: var(--accent-color);
-        }
-
-        .hero .tagline {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--secondary-color);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
-        }
-
-        .cta-button:hover {
-            background: #c1121f;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title .underline {
-            width: 80px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        /* Services Section */
-        .services {
-            background: var(--light-color);
-        }
-
-        .services-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-card i {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--gray-color);
-            font-size: 0.95rem;
-        }
-
-        /* About Section */
-        .about {
-            background: white;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .about-icon {
-            flex: 0 0 200px;
-            text-align: center;
-        }
-
-        .about-icon i {
-            font-size: 8rem;
-            color: var(--primary-color);
-            opacity: 0.9;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text p {
-            font-size: 1.15rem;
-            color: var(--gray-color);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            background: var(--primary-color);
-            color: white;
-            text-align: center;
-        }
-
-        .reviews .section-title h2 {
-            color: white;
-        }
-
-        .reviews-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .stars {
-            font-size: 3rem;
-            color: #ffc107;
-            margin-bottom: 1rem;
-        }
-
-        .stars i {
-            margin: 0 0.2rem;
-        }
-
-        .rating-number {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .review-count {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .google-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: white;
-            color: var(--dark-color);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-        }
-
-        .google-badge i {
-            color: #4285f4;
-            font-size: 1.5rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--light-color);
-        }
-
-        .contact-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-card p {
-            color: var(--gray-color);
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .contact-card a {
-            color: var(--primary-color);
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .contact-card a:hover {
-            color: var(--secondary-color);
-        }
-
-        .contact-cta {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-        }
-
-        footer .powered-by {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        footer .powered-by a {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-container {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .about-icon {
-                flex: 0 0 100%;
-            }
-
-            .about-icon i {
-                font-size: 5rem;
-            }
-
-            .about-text {
-                text-align: center;
-            }
-
-            .rating-number {
-                font-size: 3rem;
-            }
-
-            .stars {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .hero {
-                padding: 6rem 1rem 3rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .contact-card {
-                padding: 2rem 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colombia Auto Repair | Dallas, TX</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;color:#1a1a1a;background:#fff}
+a{text-decoration:none}
+img{max-width:100%;height:auto}
+
+/* NAV */
+.nav{background:#0d0d0d;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.nav-logo{color:#fff;font-size:16px;font-weight:700}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:13px}
+.nav-cta{background:#e8291c;color:#fff;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:700}
+
+/* HERO */
+.hero{position:relative;min-height:480px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.85) 50%,rgba(0,0,0,0.4) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;padding:60px 5%;max-width:600px}
+.hero-badge{display:inline-block;background:#e8291c;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:1px;text-transform:uppercase}
+.hero h1{color:#fff;font-size:40px;font-weight:900;line-height:1.15;margin-bottom:12px}
+.hero p{color:rgba(255,255,255,0.85);font-size:15px;line-height:1.7;margin-bottom:28px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:#e8291c;color:#fff;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;display:inline-block}
+.btn-secondary{background:rgba(255,255,255,0.15);color:#fff;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;border:1px solid rgba(255,255,255,0.3);display:inline-block}
+.hero-stats{display:flex;gap:32px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.15)}
+.stat-num{color:#fff;font-size:24px;font-weight:800}
+.stat-lbl{color:rgba(255,255,255,0.6);font-size:11px;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
+
+/* TRUST BAR */
+.trust{background:#f0f0f0;padding:14px 5%;display:flex;gap:28px;flex-wrap:wrap;border-bottom:1px solid #e0e0e0}
+.trust-item{display:flex;align-items:center;gap:6px;color:#444;font-size:13px;font-weight:500}
+.trust-item i{color:#e8291c;font-size:13px}
+
+/* SERVICES */
+.section{padding:64px 5%}
+.section-label{color:#e8291c;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.section-title{color:#111;font-size:28px;font-weight:800;margin-bottom:6px}
+.section-sub{color:#666;font-size:14px;margin-bottom:36px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.service-card{background:#f9f9f9;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden}
+.service-img{width:100%;height:160px;object-fit:cover;display:block}
+.service-body{padding:18px}
+.service-name{color:#111;font-size:15px;font-weight:700;margin-bottom:6px}
+.service-desc{color:#666;font-size:13px;line-height:1.6}
+
+/* ABOUT */
+.about{background:#f4f4f4;padding:64px 5%}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto}
+.about-img{width:100%;height:340px;object-fit:cover;border-radius:12px;display:block}
+.about-text h2{color:#111;font-size:26px;font-weight:800;margin-bottom:16px}
+.about-text p{color:#555;font-size:14px;line-height:1.8;margin-bottom:20px}
+.bullet{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.bullet-dot{width:8px;height:8px;background:#e8291c;border-radius:50%;flex-shrink:0;margin-top:6px}
+.bullet-text{color:#444;font-size:14px;line-height:1.5}
+
+/* REVIEWS */
+.reviews{background:#f9f9f9;padding:64px 5%}
+.reviews-inner{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
+.score-box{background:#0d0d0d;border-radius:12px;padding:28px 20px;text-align:center}
+.score-big{color:#fff;font-size:56px;font-weight:900;line-height:1}
+.score-stars{color:#ffa500;font-size:18px;margin:8px 0}
+.score-count{color:rgba(255,255,255,0.7);font-size:12px}
+.review-cards{display:flex;flex-direction:column;gap:14px}
+.review-card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:18px}
+.review-top{display:flex;justify-content:space-between;margin-bottom:6px}
+.review-name{color:#111;font-size:13px;font-weight:700}
+.review-stars{color:#ffa500;font-size:12px;margin-bottom:8px}
+.review-text{color:#555;font-size:13px;line-height:1.6}
+
+/* CTA */
+.cta{background:#e8291c;padding:56px 5%;text-align:center}
+.cta h2{color:#fff;font-size:28px;font-weight:800;margin-bottom:8px}
+.cta p{color:rgba(255,255,255,0.85);font-size:15px;margin-bottom:28px}
+.cta .btn-white{background:#fff;color:#e8291c;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:800;display:inline-block}
+
+/* CONTACT */
+.contact{padding:64px 5%;background:#fff}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:0 auto}
+.contact-info h3{color:#111;font-size:20px;font-weight:700;margin-bottom:20px}
+.contact-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.contact-icon{width:36px;height:36px;background:#f0f0f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon i{color:#e8291c;font-size:14px}
+.contact-label{color:#999;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.contact-value{color:#333;font-size:14px;margin-top:2px;line-height:1.5}
+.map-box{background:#f0f0f0;border-radius:12px;height:100%;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #e0e0e0;gap:8px}
+.map-box i{color:#e8291c;font-size:32px}
+.map-box p{color:#555;font-size:13px;text-align:center;line-height:1.6;padding:0 20px}
+.map-link{color:#e8291c;font-size:13px;font-weight:600;margin-top:4px}
+
+/* FOOTER */
+.footer{background:#0d0d0d;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-left{color:rgba(255,255,255,0.5);font-size:12px}
+.footer-right{color:#e8291c;font-size:12px;font-weight:600}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero h1{font-size:28px}
+  .about-inner,.contact-inner,.reviews-inner{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+}
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <div class="logo">Colombia <span>Auto Repair</span></div>
-            <div class="header-phone">
-                <a href="tel:+12148218118">
-                    <i class="fas fa-phone"></i> (214) 821-8118
-                </a>
-            </div>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to <span>Colombia Auto Repair</span></h1>
-            <p class="tagline">Your Trusted Auto Care Experts in Dallas, TX — Quality Service You Can Depend On</p>
-            <a href="tel:+12148218118" class="cta-button">
-                <i class="fas fa-phone-alt"></i> Call Us Now
-            </a>
-        </div>
-    </section>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">Colombia Auto Repair</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="tel:(214) 821-8118" class="nav-cta"><i class="fas fa-phone"></i> (214) 821-8118</a>
+</nav>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="section-title">
-            <h2>Our Services</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-oil-can"></i>
-                <h3>Oil Change & Lube</h3>
-                <p>Keep your engine running smoothly with our quick and affordable oil change services using quality products.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-cogs"></i>
-                <h3>Engine Repair</h3>
-                <p>Expert diagnostics and repair for all engine problems. We get to the root of the issue fast.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-car-battery"></i>
-                <h3>Brake Service</h3>
-                <p>Complete brake inspection, repair, and replacement to keep you and your family safe on the road.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-snowflake"></i>
-                <h3>AC & Heating</h3>
-                <p>Stay comfortable year-round with our comprehensive air conditioning and heating system services.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tire"></i>
-                <h3>Tire Services</h3>
-                <p>Tire rotation, balancing, and replacement. We help extend the life of your tires and improve safety.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tools"></i>
-                <h3>General Maintenance</h3>
-                <p>From tune-ups to fluid checks, we provide complete maintenance to keep your vehicle in top shape.</p>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-image" src="https://images.unsplash.com/photo-1632823471565-1ecdf5c6da3e?w=1400&q=85" alt="Colombia Auto Repair" loading="eager">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Dallas, TX</div>
+    <h1>Colombia Auto Repair</h1>
+    <p>Your Trusted Dallas Auto Repair Experts</p>
+    <div class="hero-btns">
+      <a href="tel:(214) 821-8118" class="btn-primary"><i class="fas fa-phone"></i> Call Us Now</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">4.2★</div><div class="stat-lbl">Google Rating</div></div>
+      <div><div class="stat-num">56+</div><div class="stat-lbl">Reviews</div></div>
+      <div><div class="stat-num">Local</div><div class="stat-lbl">Business</div></div>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section class="about">
-        <div class="section-title">
-            <h2>About Us</h2>
-            <div class="underline"></div>
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-item"><i class="fas fa-check-circle"></i> ASE Certified</div><div class="trust-item"><i class="fas fa-check-circle"></i> Same-Day Service</div><div class="trust-item"><i class="fas fa-check-circle"></i> Free Estimates</div><div class="trust-item"><i class="fas fa-check-circle"></i> 12-Month Warranty</div><div class="trust-item"><i class="fas fa-check-circle"></i> Se Habla Español</div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-label">What we offer</div>
+  <div class="section-title">Our Services</div>
+  <div class="section-sub">Professional service for every need</div>
+  <div class="services-grid">
+    
+    <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="Brake Service & Repair" loading="lazy">
+      <div class="service-body">
+        <div class="service-name">Brake Service & Repair</div>
+        <div class="service-desc">Complete brake inspections, pad replacements, rotor resurfacing, and hydraulic system repairs to keep you stopping safely.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Engine Diagnostics" loading="lazy">
+      <div class="service-body">
+        <div class="service-name">Engine Diagnostics</div>
+        <div class="service-desc">Advanced computer diagnostics to identify check engine lights, performance issues, and hidden problems quickly.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=600&q=80" alt="Oil Change & Maintenance" loading="lazy">
+      <div class="service-body">
+        <div class="service-name">Oil Change & Maintenance</div>
+        <div class="service-desc">Conventional and synthetic oil changes with multi-point inspections to keep your engine running smoothly.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Transmission Service" loading="lazy">
+      <div class="service-body">
+        <div class="service-name">Transmission Service</div>
+        <div class="service-desc">Fluid flushes, filter replacements, and transmission repairs to extend the life of your drivetrain.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1537984822441-cff330075342?w=600&q=80" alt="AC & Heating Repair" loading="lazy">
+      <div class="service-body">
+        <div class="service-name">AC & Heating Repair</div>
+        <div class="service-desc">Full climate control system diagnostics and repairs to keep you comfortable in Texas weather.</div>
+      </div>
+    </div>
+    <div class="service-card">
+      <img class="service-img" src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=80" alt="Suspension & Steering" loading="lazy">
+      <div class="service-body">
+        <div class="service-name">Suspension & Steering</div>
+        <div class="service-desc">Shocks, struts, alignment, and steering component repairs for a smooth, controlled ride.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <img class="about-img" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=85" alt="About Colombia Auto Repair" loading="lazy">
+    <div class="about-text">
+      <div class="section-label">About us</div>
+      <h2>Colombia Auto Repair</h2>
+      <p>Colombia Auto Repair has proudly served the Dallas community with honest, reliable automotive services. Our skilled technicians treat every vehicle like their own, delivering quality repairs at fair prices. We're committed to keeping you safe on the road.</p>
+      
+      <div class="bullet"><div class="bullet-dot"></div><div class="bullet-text">Over 56 satisfied customers and counting</div></div>
+      <div class="bullet"><div class="bullet-dot"></div><div class="bullet-text">Honest diagnostics, no surprise charges</div></div>
+      <div class="bullet"><div class="bullet-dot"></div><div class="bullet-text">Experienced ASE-certified technicians on staff</div></div>
+      <div class="bullet"><div class="bullet-dot"></div><div class="bullet-text">Convenient East Dallas location</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-label">What people say</div>
+    <div class="section-title" style="margin-bottom:28px">Customer Reviews</div>
+    <div class="reviews-inner">
+      <div>
+        <div class="score-box">
+          <div class="score-big">4.2</div>
+          <div class="score-stars">★★★★☆</div>
+          <div class="score-count">56+ reviews</div>
         </div>
-        <div class="about-content">
-            <div class="about-icon">
-                <i class="fas fa-car-side"></i>
-            </div>
-            <div class="about-text">
-                <p>Colombia Auto Repair has been proudly serving the Dallas community with reliable and honest auto repair services. Our team of experienced mechanics is dedicated
+      </div>
+      <div class="review-cards">
+        
+        <div class="review-card">
+          <div class="review-top"><span class="review-name">Marcus T.</span></div>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">These guys are the real deal. They fixed my AC for half what the dealership quoted and had me back on the road the same day. Honest and hardworking!</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><span class="review-name">Jennifer L.</span></div>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">I've been bringing my Honda here for three years now. They always explain what needs to be done and never push unnecessary services. Highly recommend!</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top"><span class="review-name">Carlos M.</span></div>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-text">Great experience from start to finish. They diagnosed a tricky engine problem that two other shops couldn't figure out. Fair prices and friendly staff.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Schedule Your Repair Appointment Today!</h2>
+  <p>Call us today — we're ready to help</p>
+  <a href="tel:(214) 821-8118" class="btn-white"><i class="fas fa-phone"></i> (214) 821-8118</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h3>Get in touch</h3>
+      <div class="contact-row"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-label">Address</div><div class="contact-value">113 N Collett Ave, Dallas, TX 75214, USA</div></div></div>
+      <div class="contact-row"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:(214) 821-8118" style="color:#333">(214) 821-8118</a></div></div></div>
+      <div class="contact-row"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><div class="contact-label">Hours</div><div class="contact-value">Mon-Fri: 8am-6pm, Sat: 9am-4pm</div></div></div>
+      
+    </div>
+    <div class="map-box">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>113 N Collett Ave, Dallas, TX 75214, USA</p>
+      <a href="https://maps.google.com/?q=113%20N%20Collett%20Ave%2C%20Dallas%2C%20TX%2075214%2C%20USA" target="_blank" class="map-link">Open in Google Maps →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">© 2026 Colombia Auto Repair · Dallas, TX</div>
+  <div class="footer-right">⚡ Powered by WhyNot Automate</div>
+</footer>
+
+</body>
+</html>
